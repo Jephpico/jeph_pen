@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+
+    {% block content %}
+    <h3><p>wahala</p></h3>
+    <p>wahala</p>
+    {% for post in object_list %}
+        <div class="Title">
+          
+        <h2><a href="{% url 'Postview' post.pk %}">{{ post.title}}</a></h2> 
+        </div>
+        <div class = "body">
+            <p>{{ post.snippet }}</p>
+        </div>
+            <p>{{ post.date_time }}</p>
+        {% endfor %}
+
+
+    {% endblock %}

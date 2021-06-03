@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+ <h3> Hi {{ user.username }}! </h3>
+ <p><a href="{% url 'logout' %}"><button>Log out</button></a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}"><button>Log in</button></a>
+  <a href="/accounts/signup"><button>Signup</button></a>
+{% endif %}
+<div>
+   <h3> <p>Welcome to Jeph's pen</p></h3>
+</div>
+{% endblock %}

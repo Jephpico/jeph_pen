@@ -1,0 +1,28 @@
+{% extends 'base_layout.html' %}
+
+
+
+{% block content %}
+  
+      <div class = "Post">
+      <h1>{{post.title}}</h1>
+      <p>{{post.body}}</p>
+      <p>{{post.date_time}}</p>
+      <p><h3>{{post.author}}</h3></p>
+      </div>
+      <br>
+      <hr>
+      <h2>Comments</h2>
+
+      <h4><a href="{% url 'CreateCommentView' post.pk %}">Add comment</a></h4>
+      {% if not post.comments.all %}
+        no comments...  
+      {% else %}
+          {% for comment in post.comments.all %}
+      <p>{{comment.name}}</p>
+      <p>{{comment.body}}</p>
+      <p>{{comment.date}}</p>
+          {% endfor %}
+      {% endif %}
+
+{% endblock %}

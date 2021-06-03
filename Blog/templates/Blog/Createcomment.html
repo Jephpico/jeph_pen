@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+
+
+{% block content %}
+{% if not user.authenticated %}
+<p>Add a comment</p>
+<form action="" method = "Post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type ="submit" value="Post">
+
+</form>
+{% else %}
+      <p>Kindly <a href="{% url 'login' %}">login</a></p>
+{% endif %}
+{% endblock %}
